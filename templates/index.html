@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebApp-MADERA</title>
+    <style>
+        /* Set background color for the entire page */
+        html {
+            background-color: #e8e533;
+        }
+
+        body {
+            text-align: center;
+            margin-top: 200px;
+             font-family: Lucida Sans;
+             font-size: 20px;
+}
+
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            background-color: #24261f;
+            padding: 20px;
+        }
+
+        input[type="text"] {
+            display: block;
+            margin: 0 auto;
+            margin-top: 100px;
+            border: 1px solid #0d0c0a;
+            padding: 10px;
+            max-width: 500px; /* Adjust the maximum width as needed */
+
+        }
+
+        /* Button Styles */
+        button {
+            display: block;
+            margin: 0 auto;
+            background-color: #e6db81;
+            color: #24261f;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color:#f7e134;
+        }
+
+        /* Prediction Output Box Styles */
+        .prediction-box {
+            background-color: #f5e162;
+            border: 1px solid #0d0c0a;
+            padding: 10px;
+            margin: 20px auto;
+            margin-top: 100px;
+            max-width: 300px; /* Adjust the maximum width as needed */
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Predict Profit by using R&D Spending</h1>
+    <form action="{{ url_for('predict')}}" method="post">
+        <input type="text" name="spending" placeholder="R&D Spending" required="required" /><br><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict profit</button>
+    </form>
+
+    <!-- Prediction Output Box -->
+    <div class="prediction-box">
+        <h4 style="color: Red;">{{ prediction_output }}</h4>
+    </div>
+</body>
+</html>
